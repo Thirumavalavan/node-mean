@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-app.set('view engine','ejs');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/css", express.static(__dirname + '/css'));
@@ -51,7 +50,7 @@ app.get("/users/:id", function(req,res) {
 	console.log('Received findOne person request');
 	console.log(req.params.id);
 	users.findById(req.params.id, function(err, user){
-		res.render('views/form');
+		res.render('views/form.html');
 	});
 });
 
@@ -73,7 +72,7 @@ users.findByIdAndUpdate(req.params.id, function(err,user){
 
 
 app.get('/', function (req, res) {
-res.render('/index' , { root : __dirname});
+res.render('/index.html' , { root : __dirname});
 });
 
 app.listen(process.env.PORT || 8080, function(){
