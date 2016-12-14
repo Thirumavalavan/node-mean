@@ -1,0 +1,30 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "Mean stack appication using node express mongo and angular",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Mongo",
+    "node",
+    "angular",
+    "express"
+  ],
+  "author": "Thirumavalavan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "formidable": "^1.0.17",
+    "fs": "0.0.1-security",
+    "json": "^9.0.4",
+    "jsonfile": "^2.4.0",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.2",
+    "request": "^2.79.0",
+    "router": "^1.1.4",
+    "routes": "^2.1.0"
+  }
+}
