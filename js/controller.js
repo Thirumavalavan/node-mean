@@ -1,6 +1,5 @@
 var myApp = angular.module('myApp', []);
 myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
-
   var updateView=function(){
          $http.get('/users').success(function(response) {
          $scope.users = response; 

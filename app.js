@@ -1,11 +1,12 @@
 var express = require('express');
 var app = express();
+app.set('view engine','ejs');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://catchgjt:root@ds133378.mlab.com:33378 /thirun_employee';
+var dbURI = 'mongodb://catchgjt:root@ds133378.mlab.com:33378/thirun_employee';
 
 mongoose.connect(dbURI);
 var testSchema = new mongoose.Schema({
@@ -50,7 +51,7 @@ app.get("/users/:id", function(req,res) {
 	console.log('Received findOne person request');
 	console.log(req.params.id);
 	users.findById(req.params.id, function(err, user){
-		console.log(user);
+		res.render('views/form');
 	});
 });
 
@@ -72,7 +73,7 @@ users.findByIdAndUpdate(req.params.id, function(err,user){
 
 
 app.get('/', function (req, res) {
-res.sendFile('/index.html' , { root : __dirname});
+res.sendFile('/index.ejs' , { root : __dirname});
 });
 
 app.listen(process.env.PORT || 8080, function(){
