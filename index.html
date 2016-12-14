@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+     <title>edureka! MEAN Application</title>     
+     <link href="css/bootstrap.min.css" rel="stylesheet"> 
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+     <script>
+  $(function() {
+    var datepicker=$("#datepicker").datepicker(
+                    {changeMonth:true,changeYear:true,maxDate:"-1M -1D -1Y",dateFormat:"yy-mm-dd"}
+                                              );
+    $("#datepicker").bind("keydown", function (event) {
+       event.preventDefault();
+     });
+  });
+  </script>
+    
+</head>
+
+<body>
+    <div class="container ng-scope" ng-controller="AppCtrl">
+      <br/>
+      <h1 align="center">MEAN - Employee Directory Application</h1><br/><br/>
+      <table class="table">          
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Date of Birth</td>
+            <td>Department</td>
+            <td>Gender</td>
+            <td>Age</td>
+          </tr>
+        </thead>
+          
+        <tbody>
+            <tr>
+                
+              <form method="post" action="/users">
+                  <td>
+                    <input type="text" class="form-control" ng-model="user.name" required  placeholder="Name" name="name"/>
+                  </td>
+                  <td>
+                    <input type="email" ng-model="user.email" required class="form-control"   name="email"   placeholder="abc@xyz.com"/>
+                  </td>
+                  <td>
+                    <input type="text" ng-model="user.dob" id="datepicker" class="form-control" required  name="DOB" placeholder="YYYY-MM-DD"/>
+                  </td>
+                  <td>
+                    <input  ng-model="user.department" required class="form-control"   name="department" placeholder="Department"/>
+                  </td>
+                  <td>
+                    <input  ng-model="user.gender" required class="form-control"  name="gender" placeholder="Gender"/>
+                  </td>
+                  <td>
+                    <input type="number" ng-model="user.age" disabled class="form-control"  name="age"  placeholder="Age"/>
+                  </td>
+                  <td>
+                      <button class="btn btn-success btn-md" ng-click="addUsers()" ng-disabled="addContactForm.$invalid">Add Employee</button>
+                      <td><button class="btn btn-success btn-md" ng-click="updateUsers()">Update Employee</button></td>
+                  </td>
+            
+              </form>
+            </tr> 
+            
+            <tr ng-repeat="user in users">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>               
+                <td>{{user.DOB | date:'yyyy-MM-dd'}}</td>
+                <td>{{user.department}}</td>
+                <td>{{user.gender}}</td>
+                <td>{{calculateAge(user.DOB)}}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm" ng-click="removeUsers(user._id)">Delete</button>&nbsp;&nbsp;
+                  <button class="btn btn-primary btn-sm" ng-click="editUsers(user._id)">Edit</button>
+                </td>
+                
+            </tr> 
+            
+            
+          </tbody>
+          
+        </table>  
+    </div>
+	 <script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+
+</body>
+    
+</html>
+
+
