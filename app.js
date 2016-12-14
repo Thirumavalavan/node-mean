@@ -5,7 +5,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://catchgjt:root@ds037015.mongolab.com:37015/thirun_employee';
+var dbURI = 'mongodb://catchgjt:root@ds133378.mlab.com:33378 /thirun_employee';
 
 mongoose.connect(dbURI);
 var testSchema = new mongoose.Schema({
