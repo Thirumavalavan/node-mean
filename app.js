@@ -75,6 +75,6 @@ app.get('/', function (req, res) {
 res.sendFile('/index.html' , { root : __dirname});
 });
 
-var server = app.listen(5000, function () {
-    console.log('Node server is running..');
+app.listen(process.env.PORT || 8080, function(){
+console.log("Server started @ 8080");
 });
