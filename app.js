@@ -16,7 +16,7 @@ var testSchema = new mongoose.Schema({
 		gender:String
 });
 
-var users = mongoose.model('users', testSchema);
+var employee = mongoose.model('users', testSchema);
 
 app.get('/users', function(req, res){
 
@@ -27,26 +27,26 @@ app.get('/users', function(req, res){
 });
 
 app.post('/users', function(req, res, next) {
-new testSchema(req.body).save(function(err,doc){
+new employee(req.body).save(function(err,doc){
 res.json(doc);
 });
 
 });
 app.delete('/users/:id', function(req, res) {
-   testSchema.findByIdAndRemove(req.params.id, function(err, doc) {
+   employee.findByIdAndRemove(req.params.id, function(err, doc) {
       res.json(doc);
    });
 });
 app.get("/users/:id", function(req,res) {
 	console.log('Received findOne person request');
 	console.log(req.params.id);
-	testSchema.findOne(req.params.id, function(err, doc){
+	employee.findOne(req.params.id, function(err, doc){
 		res.json(doc);
 	});
 });
 
 app.put('/users/:id', function(req,res){
-testSchema.findByIdAndUpdate(req.params.id, function(err,doc){	
+employee.findByIdAndUpdate(req.params.id, function(err,doc){	
 			  user.name = req.body.name;
               user.email = req.body.email;
 			  user.DOB = req.body.DOB;
