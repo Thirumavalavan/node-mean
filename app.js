@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require("body-parser");
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/css", express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
@@ -8,7 +9,7 @@ var mongoose = require('mongoose');
 var dbURI = 'mongodb://catchgjt:root@ds133378.mlab.com:33378/thirun_employee';
 
 mongoose.connect(dbURI);
-var testSchema = mongoose.Schema({
+var testSchema = new mongoose.Schema({
         name: String,
         email: String,
 		DOB:String,
