@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
-     <title>edureka! MEAN Application</title>     
+     <title>MEAN Application Using NodeJS</title>     
      <link href="css/bootstrap.min.css" rel="stylesheet"> 
      <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -38,28 +38,28 @@
           
         <tbody>
                 
-			              <tr> 
+			<tr> 
 			  <form class="addContactForm">
                   <td>
-                    <input type="text" class="form-control" ng-model="user.name" required  placeholder="Name" name="name"/>
+                    <input type="text" class="form-control" ng-model="user.name" ng-required="true"  placeholder="Name" name="name"/>
                   </td>
                   <td>
-                    <input type="email" ng-model="user.email" required class="form-control"   name="email"   placeholder="abc@xyz.com"/>
+                    <input type="email" ng-model="user.email" ng-required="true" class="form-control"   name="email"   placeholder="abc@xyz.com"/>
                   </td>
                   <td>
-                    <input type="text" ng-model="user.dob" id="datepicker" class="form-control" required  name="DOB" placeholder="YYYY-MM-DD"/>
+                    <input type="text" ng-model="user.dob" id="datepicker" class="form-control" ng-required="true"  name="DOB" placeholder="YYYY-MM-DD"/>
                   </td>
                   <td>
-                    <input  ng-model="user.department" required class="form-control"   name="department" placeholder="Department"/>
+                    <input  ng-model="user.department" ng-required="true" class="form-control"   name="department" placeholder="Department"/>
                   </td>
                   <td>
-                    <input  ng-model="user.gender" required class="form-control"  name="gender" placeholder="Gender"/>
+                    <input  ng-model="user.gender" ng-required="true" class="form-control"  name="gender" placeholder="Gender"/>
                   </td>
                   <td>
                     <input type="number" ng-model="user.age" disabled class="form-control"  name="age"  placeholder="Age"/>
                   </td>
 			 <td>
-                      <button class="btn btn-success btn-md" ng-click="addUsers()"  ng-disabled="addContactForm.$invalid">Add Employee</button>
+                      <button class="btn btn-success btn-md" ng-click="addContactForm.$valid && addUsers()">Add Employee</button>
                       <td><button class="btn btn-success btn-md" ng-click="updateUsers()">Update Employee</button></td>
                   </td>
             
