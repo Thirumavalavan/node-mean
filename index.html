@@ -2,14 +2,14 @@
 <html ng-app="myApp">
 <head>
      <title>MEAN Application using Node</title>     
-     <link href="css/bootstrap.min.css" rel="stylesheet"> 
+     <link href="/css/bootstrap.min.css" rel="stylesheet"> 
     
 </head>
 
 <body>
     <div class="container ng-scope" ng-controller="AppCtrl">
       <br/>
-      <h1 align="center">MEAN - Employee Directory Application</h1><br/><h3 align="center">By Thirumavalavan G</h3><br/>
+      <h1 align="center">MEAN - Employee Directory Application</h1><br/><h3 align="center" class="text-primary">By Thirumavalavan G</h3><br/>
 	  <hr>
       <table class="table">          
         <thead>
@@ -28,26 +28,26 @@
 			              <tr> 
 			  <form class="addContactForm">
                   <td>
-                    <input type="text" class="form-control" ng-model="users.name" ng-required="true"  placeholder="Name" name="name"/>
+                    <input type="text" class="form-control" ng-model="users.name"  placeholder="Name" name="name"/>
                   </td>
                   <td>
-                    <input type="email" ng-model="users.email" ng-required="true" class="form-control"   name="email"   placeholder="abc@xyz.com"/>
+                    <input type="email" ng-model="users.email"  class="form-control"   name="email"   placeholder="abc@xyz.com"/>
                   </td>
                   <td>
-                    <input type="text" ng-model="users.DOB" id="datepicker" class="form-control" ng-required="true"  name="DOB" placeholder="YYYY-MM-DD"/>
+                    <input type="text" ng-model="users.DOB" id="datepicker" class="form-control"  name="DOB" placeholder="YYYY-MM-DD"/>
                   </td>
                   <td>
-                    <input  ng-model="users.department" ng-required="true" class="form-control"   name="department" placeholder="Department"/>
+                    <input  ng-model="users.department"  class="form-control"   name="department" placeholder="Department"/>
                   </td>
                   <td>
-                    <input  ng-model="users.gender" ng-required="true" class="form-control"  name="gender" placeholder="Gender"/>
+                    <input  ng-model="users.gender" class="form-control"  name="gender" placeholder="Gender"/>
                   </td>
                   <td>
                     <input type="number"  disabled class="form-control"  name="age"  placeholder="Age"/>
                   </td>
 			 <td>
-                      <button class="btn btn-success btn-md" ng-click="addContactForm.$valid && addUsers()">Add Employee</button>
-                      <td><button class="btn btn-success btn-md" ng-click="addContactForm.$valid && updateUsers()">Update Employee</button></td>
+                      <button class="btn btn-success btn-md" ng-click="addUsers()">Add Employee</button>
+                      <td><button class="btn btn-success btn-md" ng-click="updateUsers()">Update Employee</button></td>
                   </td>
             
               </form>
