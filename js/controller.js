@@ -15,6 +15,7 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
   updateView();
   
     $scope.addUsers = function() {
+	console.log($scope.users);
       $http.post('/users', $scope.users).success(function(response) {
         updateView();
       });
