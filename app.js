@@ -27,26 +27,26 @@ app.get('/users', function(req, res){
 });
 
 app.post('/users', function(req, res, next) {
-new users(req.body).save(function(err,doc){
+new testSchema(req.body).save(function(err,doc){
 res.json(doc);
 });
 
 });
 app.delete('/users/:id', function(req, res) {
-   users.findByIdAndRemove(req.params.id, function(err, doc) {
+   testSchema.findByIdAndRemove(req.params.id, function(err, doc) {
       res.json(doc);
    });
 });
 app.get("/users/:id", function(req,res) {
 	console.log('Received findOne person request');
 	console.log(req.params.id);
-	users.findOne(req.params.id, function(err, doc){
+	testSchema.findOne(req.params.id, function(err, doc){
 		res.json(doc);
 	});
 });
 
 app.put('/users/:id', function(req,res){
-users.findByIdAndUpdate(req.params.id, function(err,doc){	
+testSchema.findByIdAndUpdate(req.params.id, function(err,doc){	
 			  user.name = req.body.name;
               user.email = req.body.email;
 			  user.DOB = req.body.DOB;
