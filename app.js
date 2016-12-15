@@ -26,39 +26,31 @@ app.get('/userlist', function(req, res){
         });
 });
 
-app.post('/userlist', function(req, res, next) {
+app.route('/userlist').get(function(req,res){
+employee.find({},function(err,doc)
+{
+res.json(doc);
+});
+}).post(function(req,res){
 new employee(req.body).save(function(err,doc){
 res.json(doc);
 });
-
 });
-app.delete('/userlist/:id', function(req, res) {
-   employee.findByIdAndRemove(req.params.id, function(err, doc) {
-      res.json(doc);
-   });
+app.route('/userlist/:id').delete(function(req,res){
+var id=req.params.id;
+employee.remove({_id:id},function(err,doc){
+res.json(doc);
 });
-app.get("/userlist/:id", function(req,res) {
-	console.log('Received findOne person request');
-	console.log(req.params.id);
-	employee.findOne(req.params.id, function(err, doc){
-		res.json(doc);
-	});
+}).get(function(req,res){
+var id=req.params.id;
+employee.findOne({_id:id},function(err,doc){
+res.json(doc);
 });
-
-app.put('/userlist/:id', function(req,res){
-employee.findByIdAndUpdate(req.params.id, function(err,doc){	
-			  user.name = req.body.name;
-              user.email = req.body.email;
-			  user.DOB = req.body.DOB;
-			  user.department = req.body.department;
-			  user.gender = req.body.gender;
-			  user.save (function(err,doc){
-			  if (err) throw err;
-			  else{
-			  res.json(doc);
-			  }
-			  });
-			  });
+}).put(function(req,res){
+var id=req.params.id;
+employee.update({_id:id},{name:req.body.name,email:req.body.email,DOB:req.body.DODB,department:req.body.department,gender:req.body.gender},function(err,doc){
+res.json(doc);
+});
 });
 
 
