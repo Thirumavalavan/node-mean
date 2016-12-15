@@ -27,7 +27,7 @@ app.get('/users', function(req, res){
 });
 
 app.post('/users', function(req, res, next) {
-   var use = new users({
+   var use = new user({
       name: req.body.name,
       email: req.body.email,
 	  DOB : req.body.DOB,
