@@ -18,7 +18,7 @@ var testSchema = new mongoose.Schema({
 
 var employee = mongoose.model('users', testSchema);
 
-app.get('/users', function(req, res){
+app.get('/userlist', function(req, res){
 
         employee.find({},function(err, doc){
                  if (err) throw err;
@@ -26,18 +26,18 @@ app.get('/users', function(req, res){
         });
 });
 
-app.post('/users', function(req, res, next) {
+app.post('/userlist', function(req, res, next) {
 new employee(req.body).save(function(err,doc){
 res.json(doc);
 });
 
 });
-app.delete('/users/:id', function(req, res) {
+app.delete('/userlist/:id', function(req, res) {
    employee.findByIdAndRemove(req.params.id, function(err, doc) {
       res.json(doc);
    });
 });
-app.get("/users/:id", function(req,res) {
+app.get("/userlist/:id", function(req,res) {
 	console.log('Received findOne person request');
 	console.log(req.params.id);
 	employee.findOne(req.params.id, function(err, doc){
@@ -45,7 +45,7 @@ app.get("/users/:id", function(req,res) {
 	});
 });
 
-app.put('/users/:id', function(req,res){
+app.put('/userlist/:id', function(req,res){
 employee.findByIdAndUpdate(req.params.id, function(err,doc){	
 			  user.name = req.body.name;
               user.email = req.body.email;

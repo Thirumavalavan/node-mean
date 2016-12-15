@@ -2,13 +2,13 @@ var myApp = angular.module('myApp', []);
 myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
 
   var updateView=function(){
-         $http.get('/users').success(function(response) {
-         $scope.users = response; 
+         $http.get('/userlist').success(function(response) {
+         $scope.userlist = response; 
          $scope.user="";
         });
   };
     $scope.editUsers = function(id) {
-      $http.get('/users/' + id).success(function(response) {
+      $http.get('/userlist/' + id).success(function(response) {
       $scope.user = response;
      });
    };
@@ -16,13 +16,13 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
   
     $scope.addUsers = function() {
 	console.log($scope.user);
-      $http.post('/users', $scope.user).success(function(response) {
+      $http.post('/userlist', $scope.user).success(function(response) {
         updateView();
       });
     };
     
     $scope.removeUsers = function(id) {
-      $http.delete('/users/' + id).success(function(response) {
+      $http.delete('/userlist/' + id).success(function(response) {
           updateView();
       });
     };
@@ -30,8 +30,8 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
 
     
     $scope.updateUsers = function(id) {
-     console.log($scope.users._id);
-     $http.put('/users/' + $scope.users._id, $scope.user).success(function(response) {
+     console.log($scope.user._id);
+     $http.put('/userlist/' + $scope.user._id, $scope.user).success(function(response) {
        updateView();
      });
     };
