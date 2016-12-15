@@ -4,19 +4,19 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
   var updateView=function(){
          $http.get('/userlist').success(function(response) {
          $scope.userlist = response; 
-         $scope.user="";
+         $scope.users="";
         });
   };
     $scope.editUsers = function(id) {
       $http.get('/userlist/' + id).success(function(response) {
-      $scope.user = response;
+      $scope.users = response;
      });
    };
   updateView();
   
     $scope.addUsers = function() {
 	console.log($scope.user);
-      $http.post('/userlist', $scope.user).success(function(response) {
+      $http.post('/userlist', $scope.users).success(function(response) {
         updateView();
       });
     };
@@ -30,8 +30,8 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
 
     
     $scope.updateUsers = function(id) {
-     console.log($scope.user._id);
-     $http.put('/userlist/' + $scope.user._id, $scope.user).success(function(response) {
+     console.log($scope.users._id);
+     $http.put('/userlist/' + $scope.users._id, $scope.users).success(function(response) {
        updateView();
      });
     };
