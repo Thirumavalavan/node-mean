@@ -8,8 +8,8 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
         });
   };
     $scope.editUsers = function(id) {
-      $http.get('/users/' + id).success(function(data) {
-      $scope.user = data;
+      $http.get('/users/' + id).success(function(response) {
+      $scope.user = response;
      });
    };
   updateView();
