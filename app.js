@@ -27,20 +27,10 @@ app.get('/users', function(req, res){
 });
 
 app.post('/users', function(req, res, next) {
-   var use = new user({
-      name: req.body.name,
-      email: req.body.email,
-	  DOB : req.body.DOB,
-	  department:req.body.department,
-	  gender:req.body.gender
-   });
-   console.log(use);
-   use.save(function(err, doc) {
-      if(err) {
-         return next(err);
-      }
-      res.json(doc);
-   });
+new users(req.body).save(function(err,doc){
+res.json(doc);
+});
+
 });
 app.delete('/users/:id', function(req, res) {
    users.findByIdAndRemove(req.params.id, function(err, doc) {
