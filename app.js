@@ -73,7 +73,7 @@ users.findByIdAndUpdate(req.params.id, function(err,doc){
 
 
 app.get('/', function (req, res) {
-res.render('index.html');
+res.sendFile('/index.html' , { root : __dirname});
 });
 
 app.listen(process.env.PORT || 8080, function(){
