@@ -48,7 +48,7 @@ res.json(doc);
 });
 }).put(function(req,res){
 var id=req.params.id;
-employee.update({_id:id},{name:req.body.name,email:req.body.email,DOB:req.body.DODB,department:req.body.department,gender:req.body.gender},function(err,doc){
+employee.update({_id:id},{name:req.body.name,email:req.body.email,DOB:req.body.DOB,department:req.body.department,gender:req.body.gender},function(err,doc){
 res.json(doc);
 });
 });
