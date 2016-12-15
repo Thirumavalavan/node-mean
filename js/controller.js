@@ -15,8 +15,8 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
   updateView();
   
     $scope.addUsers = function() {
-	console.log($scope.users);
-      $http.post('/users', $scope.users).success(function(response) {
+	console.log($scope.user);
+      $http.post('/users', $scope.user).success(function(response) {
         updateView();
       });
     };
@@ -31,7 +31,7 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
     
     $scope.updateUsers = function(id) {
      console.log($scope.users._id);
-     $http.put('/users/' + $scope.users._id, $scope.users).success(function(response) {
+     $http.put('/users/' + $scope.users._id, $scope.user).success(function(response) {
        updateView();
      });
     };
