@@ -20,7 +20,7 @@ var employee = mongoose.model('users', testSchema);
 
 app.get('/users', function(req, res){
 
-        users.find({},function(err, doc){
+        employee.find({},function(err, doc){
                  if (err) throw err;
 		res.json(doc);
         });
