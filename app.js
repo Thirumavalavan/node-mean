@@ -62,7 +62,7 @@ users.findByIdAndUpdate(req.params.id, function(err,doc){
 			  user.DOB = req.body.DOB;
 			  user.department = req.body.department;
 			  user.gender = req.body.gender;
-			  user.save (function(err,user){
+			  user.save (function(err,doc){
 			  if (err) throw err;
 			  else{
 			  res.json(doc);
