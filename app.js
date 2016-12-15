@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 var dbURI = 'mongodb://catchgjt:root@ds133378.mlab.com:33378/thirun_employee';
 
 mongoose.connect(dbURI);
-var testSchema = new mongoose.Schema({
+var testSchema = mongoose.Schema({
         name: String,
         email: String,
 		DOB:String,
