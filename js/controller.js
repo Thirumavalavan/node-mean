@@ -36,11 +36,11 @@ myApp.controller("AppCtrl", ['$scope', '$http', function($scope, $http) {
      });
     };
     
-$scope.calculateAge = function(DOB) { // pass in player.dateOfBirth
+/* $scope.calculateAge = function(DOB) { // pass in player.dateOfBirth
     var ageDifMs = Date.now() - new Date(DOB);
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
+} */
 }]);
 
 

@@ -41,9 +41,9 @@
                   <td>
                     <input  ng-model="users.gender" required class="form-control"  name="gender" placeholder="Gender"/>
                   </td>
-                  <td>
+<!--                   <td>
                     <input type="number"  disabled class="form-control"  name="age"  placeholder="Age"/>
-                  </td>
+                  </td> -->
 			 <td>
                       <button class="btn btn-success btn-md" ng-click="addUsers()"  ng-disabled="addContactForm.$invalid">Add Employee</button>
                       <td><button class="btn btn-success btn-md" ng-click="updateUsers()">Update Employee</button></td>
@@ -57,7 +57,7 @@
                 <td>{{user.DOB | date:'yyyy-MM-dd'}}</td>
                 <td>{{user.department}}</td>
                 <td>{{user.gender}}</td>
-                <td>{{calculateAge(user.DOB)}}</td>
+                <!-- <td>{{calculateAge(user.DOB)}}</td> -->
                 <td>
                   <button class="btn btn-danger btn-sm" ng-click="removeUsers(user._id)">Delete</button>&nbsp;&nbsp;
                   <button class="btn btn-primary btn-sm" ng-click="editUsers(user._id)">Edit</button>
